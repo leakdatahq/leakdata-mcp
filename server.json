@@ -2,8 +2,8 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.leakdatahq/leakdata-mcp",
   "title": "LeakData",
-  "description": "Check breach exposure for your verified email and domains, and check password hash prefixes.",
-  "version": "1.3.1",
+  "description": "Check breach exposure for your verified email and check locally computed password hash prefixes.",
+  "version": "1.3.2",
   "websiteUrl": "https://leakdata.io/docs",
   "icons": [
     {
