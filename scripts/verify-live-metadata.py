@@ -29,6 +29,10 @@ if card.get("transport") != {"type": "streamable-http", "endpoint": "https://lea
 tools = card.get("tools", [])
 if {item.get("name") for item in tools} != {"leakdata.search", "leakdata.password_prefix_check"}:
     raise SystemExit("Live tool surface changed; review before publishing")
+search_tool = next(item for item in tools if item.get("name") == "leakdata.search")
+for schema_name in ("inputSchema", "outputSchema"):
+    if search_tool.get(schema_name, {}).get("properties", {}).get("type", {}).get("enum") != ["email"]:
+        raise SystemExit("Live search scope is not the reviewed email-only contract")
 if not all(item.get("annotations", {}).get("readOnlyHint") is True for item in tools):
     raise SystemExit("Tool read-only contract changed; review before publishing")
 resource = read_public_json("https://leakdata.io/.well-known/oauth-protected-resource")
@@ -36,4 +40,4 @@ if resource.get("resource") != "https://leakdata.io/mcp":
     raise SystemExit("OAuth resource mismatch")
 if set(resource.get("scopes_supported", [])) != {"search", "password-check"}:
     raise SystemExit("OAuth scopes changed; review before publishing")
-print("Exact live MCP version, endpoint, tools and OAuth scopes verified")
+print("Exact live MCP version, endpoint, email-only tools and OAuth scopes verified")

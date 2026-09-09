@@ -2,9 +2,9 @@
 
 # Check exposure from your AI workspace
 
-Connect your LeakData account to check breach exposure for your verified email and company domains. Get a concise account-linked summary without requesting raw breach records.
+Connect your LeakData account to check breach exposure for your verified primary email. Get a concise account-linked summary without requesting raw breach records.
 
-**Release preparation:** this repository prepares LeakData's remote MCP Registry entry. Version 1.3.1 is awaiting production deployment and live client verification. Registry publication has not occurred.
+**Release preparation:** this repository prepares LeakData's remote MCP Registry entry. Version 1.3.2 is awaiting production deployment and live client verification. Registry publication has not occurred.
 
 [Create an account](https://leakdata.io/register?utm_source=mcp_registry&utm_medium=integration&utm_campaign=marketplace) · [View plans](https://leakdata.io/pricing?utm_source=mcp_registry&utm_medium=integration&utm_campaign=marketplace) · [Documentation](https://leakdata.io/docs)
 
@@ -18,16 +18,16 @@ The server uses OAuth with PKCE and grants `search` and `password-check` scopes.
 
 | Tool | Purpose |
 | --- | --- |
-| `leakdata.search` | Search exposure for the primary email verified on your linked account, or an exact domain whose ownership you verified. |
+| `leakdata.search` | Search exposure for the primary email verified on your linked account. |
 | `leakdata.password_prefix_check` | Check a five-character prefix of a SHA-1 password hash computed locally. |
 
-For your own verified email, the client can omit the search query. For a domain, provide its exact name; there is no domain-listing tool. Neither tool changes accounts, sends messages or performs remediation.
+For your own verified email, the client can omit the search query. Domain searches are not available through MCP in this release. Neither tool changes accounts, sends messages or performs remediation.
 
 Never enter a plaintext password or complete password hash. Prefix results describe a group of possible hashes and cannot identify whether one particular password is exposed. A no-match result is limited evidence, not a guarantee that an account or password is safe.
 
 ## Privacy and control
 
-Searches are scoped to the assets verified on the linked account. Arbitrary third-party identifiers, usernames, phone numbers, credentials and raw breach rows are outside this tool surface.
+Email searches are scoped to the verified primary email on the linked account. Arbitrary third-party identifiers, usernames, phone numbers, credentials and raw breach rows are outside this tool surface.
 
 Disable or remove the server in your client when you stop using it. Local removal does not confirm server-side token revocation. Contact LeakData Support if you need help ending account access; never include passwords or tokens in your message.
 
