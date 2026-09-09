@@ -27,7 +27,9 @@ Never enter a plaintext password or complete password hash. Prefix results descr
 
 ## Privacy and control
 
-Searches are scoped to the assets verified on the linked account. Arbitrary third-party identifiers, usernames, phone numbers, credentials and raw breach rows are outside this tool surface. Revoke the connection in LeakData when you no longer need it.
+Searches are scoped to the assets verified on the linked account. Arbitrary third-party identifiers, usernames, phone numbers, credentials and raw breach rows are outside this tool surface.
+
+Disable or remove the server in your client when you stop using it. Local removal does not confirm server-side token revocation. Contact LeakData Support if you need help ending account access; never include passwords or tokens in your message.
 
 This repository contains discovery metadata and publishing checks. The hosted service's implementation is maintained separately. MCP Registry publication, client compatibility and marketplace approval are separate statuses; this entry does not imply Google, Microsoft, Anthropic or OpenAI approval.
 
