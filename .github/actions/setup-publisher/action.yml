@@ -1,0 +1,16 @@
+name: Set up official MCP publisher
+description: Install the reviewed publisher binary and verify its release digest.
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: |
+        set -euo pipefail
+        publisher_dir="$RUNNER_TEMP/leakdata-mcp-publisher"
+        mkdir -p "$publisher_dir"
+        curl --fail --silent --show-error --location --retry 2 --connect-timeout 10 --max-time 60 \
+          -o "$publisher_dir/publisher.tar.gz" \
+          https://github.com/modelcontextprotocol/registry/releases/download/v1.8.1/mcp-publisher_linux_amd64.tar.gz
+        printf '%s  %s\n' a06c9096dcb9727c13555b6be26c7effa707b01f06a4c561ba7a3635443cf2cc "$publisher_dir/publisher.tar.gz" | sha256sum -c -
+        tar -xzf "$publisher_dir/publisher.tar.gz" -C "$publisher_dir" mcp-publisher
+        printf '%s\n' "$publisher_dir" >> "$GITHUB_PATH"

@@ -1,0 +1,36 @@
+name: Publish MCP Registry metadata
+on:
+  workflow_dispatch:
+    inputs:
+      expected_version:
+        description: Exact live MCP version already verified in a real client
+        type: string
+        required: true
+permissions:
+  contents: read
+concurrency:
+  group: mcp-registry-publish
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/main' && github.repository == 'leakdatahq/leakdata-mcp'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    environment: mcp-registry-publish
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup-publisher
+      - run: mcp-publisher validate server.json
+      - name: Confirm the exact public server version
+        env:
+          EXPECTED_MCP_VERSION: ${{ inputs.expected_version }}
+        run: python3 scripts/verify-live-metadata.py
+      - name: Authenticate through GitHub OIDC
+        run: mcp-publisher login github-oidc
+      - name: Publish the reviewed metadata
+        run: mcp-publisher publish server.json
