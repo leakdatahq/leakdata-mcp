@@ -15,9 +15,18 @@ The prepared entry uses the GitHub-owned namespace `io.github.leakdatahq/leakdat
 
 ## Publish and verify
 
-1. Run the official publisher validation against server.json.
-2. Publish through GitHub Actions OIDC from the leakdatahq-owned metadata repository, using a main-only publishing job and the pinned official publisher binary.
-3. Read the entry back from the official Registry API and record its version and receipt here. Publication is pending until that readback succeeds.
+Publication completed on September 10, 2026 at 02:33:54 UTC through [the protected GitHub OIDC workflow](https://github.com/leakdatahq/leakdata-mcp/actions/runs/34429931159), using metadata commit `445b47d4d581338c7169d81c00f2f5ae32fe7443` and official publisher 1.8.1.
+
+The [official Registry API](https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.leakdatahq%2Fleakdata-mcp) was read back at 02:34:29 UTC and returned one matching entry:
+
+- Name: `io.github.leakdatahq/leakdata-mcp`
+- Version: `1.3.2`
+- Status: `active`
+- Latest: `true`
+- Transport: `streamable-http`
+- Endpoint: `https://leakdata.io/mcp`
+
+The public repository was also accessible through an anonymous Git request, with credential helpers disabled.
 
 Official references:
 

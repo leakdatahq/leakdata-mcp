@@ -4,7 +4,7 @@
 
 Connect your LeakData account to check breach exposure for your verified primary email. Get a concise account-linked summary without requesting raw breach records.
 
-**Live service:** MCP 1.3.2 is deployed. Verified-email and supplied-prefix checks passed in actual ChatGPT web sessions on September 10, 2026. This repository publishes its discovery metadata; see [publishing evidence](PUBLISHING.md) for the Registry receipt and client limitations.
+**Published:** MCP 1.3.2 is live and [listed in the official MCP Registry](https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.leakdatahq%2Fleakdata-mcp). Verified-email and supplied-prefix checks passed in actual ChatGPT web sessions on September 10, 2026. See [publishing evidence](PUBLISHING.md) for the receipt and client limitations.
 
 [Create an account](https://leakdata.io/register?utm_source=mcp_registry&utm_medium=integration&utm_campaign=marketplace) · [View plans](https://leakdata.io/pricing?utm_source=mcp_registry&utm_medium=integration&utm_campaign=marketplace) · [Documentation](https://leakdata.io/docs)
 
