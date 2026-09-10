@@ -6,8 +6,8 @@ The prepared entry uses the GitHub-owned namespace `io.github.leakdatahq/leakdat
 
 Before publishing:
 
-1. Complete the authorized protected production rollout of MCP version 1.3.1.
-2. Verify the actual client consent and tool flows; retain only sanitized evidence.
+1. Complete the authorized protected production rollout of MCP version 1.3.2.
+2. Verify the actual client consent, verified-primary-email and supplied-prefix flows. Domain requests must be rejected before database work; retain only sanitized evidence.
 3. Run the official publisher validation against server.json.
 4. Publish through GitHub Actions OIDC from the leakdatahq-owned metadata repository, using a main-only publishing job and the pinned official publisher binary.
 5. Read the entry back from the official Registry API and record its version and receipt.
