@@ -12,7 +12,9 @@ Connect your LeakData account to check breach exposure for your verified primary
 
 Use `https://leakdata.io/mcp` as a remote Streamable HTTP server in a supported MCP client. Complete the OAuth sign-in on LeakData and approve the permissions you want to use. Client support and account eligibility vary; a registry entry does not grant access to a client's paid features or directory.
 
-The server uses OAuth with PKCE and grants `search` and `password-check` scopes. No API key or client secret belongs in the connection URL or a prompt. Your LeakData plan, account permissions and usage limits apply separately.
+You need an active LeakData plan with API access. Creating an account alone does not enable this connection. [Review plans](https://leakdata.io/pricing?utm_source=mcp_registry&utm_medium=integration&utm_campaign=marketplace) or [contact us](https://leakdata.io/contact) to confirm API access before you connect.
+
+The server uses OAuth with PKCE and grants `search` and `password-check` scopes. No API key or client secret belongs in the connection URL or a prompt. Your account permissions and usage limits apply separately.
 
 ## Available checks
 
